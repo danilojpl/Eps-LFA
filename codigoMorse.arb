@@ -113,7 +113,6 @@ class TransdutorMorse
             @count = @count+1
             q2_5
         else
-            @mensagem << "f"
             print
         end
     end
@@ -586,6 +585,9 @@ class TransdutorMorse
         when "."
             @count = @count+1
             q0_17
+        when "-"
+            @count = @count+1
+            q0_22
         else
             @mensagem << "z"
             print
@@ -646,6 +648,32 @@ class TransdutorMorse
             q0
         else
             @mensagem << "-"
+            print
+        end
+    end
+
+    def q0_22
+        case @arrayMsg [count]
+        when "-"
+            @count = @count+1
+            q0_23
+        else
+            print
+        end
+    end
+
+    def q0_23
+        case @arrayMsg [count]
+        when " "
+            @mensagem << ","
+            @count = @count+1
+            q0
+        when "/"
+            @mensagem << ", "
+            @count = @count+1
+            q0
+        else
+            @mensagem << ","
             print
         end
     end
